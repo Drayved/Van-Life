@@ -1,18 +1,18 @@
 import React from "react"
 import { Link, useLocation, useLoaderData, defer, Await } from "react-router-dom"
-
+// import { getVans } from "../../api"
 import { getVan } from "../../api/firebase"
 
 export function loader({ params }) {
-    return defer({ van: getVans(params.id) })
+    return defer({ van: getVan(params.id) })
 }
 
 export default function VanDetail() {
     const location = useLocation()
     const loaderData = useLoaderData()
 
-    const search = location.state ?.search || "";
-    const type = location.state ?.type || "all";
+    const search = location.state?.search || "";
+    const type = location.state?.type || "all";
 
     return (
         <div className="van-detail-container">

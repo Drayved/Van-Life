@@ -1,9 +1,9 @@
 import React from "react"
 import { useParams, useLoaderData, Link, NavLink, Outlet, defer, Await } from "react-router-dom"
-import { getVan} from "../../api/firebase"
+import { getVan } from "../../api/firebase"
 
 export function loader({ params }) {
-    return defer({ van: getHostVans(params.id) })
+    return defer({ van: getVan(params.id) })
 }
 
 export default function HostVanDetail() {
